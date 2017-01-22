@@ -1,7 +1,8 @@
 'use strict';
 
 var React = require('react'),
-	Question = require('./question');
+	Question = require('./question'),
+	imageload = require('./imageload');
 
 module.exports = React.createClass({
 
@@ -34,14 +35,25 @@ module.exports = React.createClass({
 	},
 
 	startQuiz: function() {
-		var bg = this.state.quiz.questions[0].background !== 'undefined' ? this.state.quiz.questions[0].background : this.state.homeBackground;
-		this.setState({
-			questionIndex : 0,
-			background : 'url(' + bg + ')',
-			questionClass: 'question-container animateIn',
-			resultClass: 'result-container hide'
+		var bg = this.state.quiz.questions[0].background !== 'undefined' ? this.state.quiz.questions[0].background : this.state.homeBackground,
+			bgsToLoad = [this.state.quiz.background];
+		this.state.quiz.questions.forEach(function(q){
+			bgsToLoad.push(q.background);
 		});
-		this.refs['question-'+this.state.questionIndex].show();
+		imageload(bgsToLoad).then(()=>{
+			this.setState({
+				questionIndex : 0,
+				background : 'url(' + bg + ')',
+				questionClass: 'question-container',
+				resultClass: 'result-container hide'
+			});
+			requestAnimationFrame(()=>{
+				this.setState({
+					questionClass: 'question-container animateIn'
+				});
+			});
+			this.refs['question-'+this.state.questionIndex].show();
+		});
 	},
 
 	endQuiz: function() {
@@ -52,8 +64,13 @@ module.exports = React.createClass({
 		setTimeout( ()=> {
 			this.setState({
 				questionClass: 'question-container hide',
-				resultClass: 'result-container animateIn'
+				resultClass: 'result-container'
 			})
+			requestAnimationFrame(()=>{
+				this.setState({
+					resultClass: 'result-container animateIn'		
+				})
+			});
 		}, 500);
 	},
 
@@ -67,7 +84,7 @@ module.exports = React.createClass({
 			homeBackground: '',
 			questionIndex: 0,
 			correctCount: 0,
-			questionClass: 'question-container animateIn',
+			questionClass: 'question-container',
 			resultClass: 'result-container hide'
 		};
 	},

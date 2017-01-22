@@ -11,7 +11,10 @@ module.exports = React.createClass({
 	},
 
 	show: function() {
-		this.setState({questionClass : 'question animateIn'});
+		this.setState({questionClass : 'question'});
+		requestAnimationFrame(()=>{
+			this.setState({questionClass : 'question animateIn'});
+		});
 	},
 
 	hide: function() {
@@ -48,12 +51,17 @@ module.exports = React.createClass({
 				if(typeof userAnswer === 'undefined') {
 					return;
 				}
+				var correct = false;
 				if(this.props.data.type === 'multiple') {
-					userAnswer *= 1;
+					if(userAnswer * 1 === this.props.data.answer) {
+						correct = true;
+					}
 				} else if(this.props.data.type === 'text') {
-					userAnswer = userAnswer.trim().toLowerCase();
+					if(userAnswer.trim().toLowerCase() === this.props.data.answer.trim().toLowerCase()) {
+						correct = true;
+					}
 				}
-				this.props.onAnswer( this.props.data.answer === userAnswer );
+				this.props.onAnswer( correct );
 			};
 
 		if(this.props.data.type === 'multiple') {
