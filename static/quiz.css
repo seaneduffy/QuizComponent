@@ -1,0 +1,163 @@
+/* line 18, ../client/quiz.scss */
+.quiz-component {
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  width: 600px;
+  min-height: 500px;
+  padding-bottom: 50px;
+  background-color: #888;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+}
+/* line 30, ../client/quiz.scss */
+.quiz-component h1, .quiz-component h2, .quiz-component h3, .quiz-component h4, .quiz-component p, .quiz-component ul, .quiz-component li {
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+/* line 36, ../client/quiz.scss */
+.quiz-component li {
+  list-style: none;
+}
+/* line 40, ../client/quiz.scss */
+.quiz-component h1 {
+  font-weight: 600;
+  font-size: 1.3em;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  margin: 40px 0 25px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* line 51, ../client/quiz.scss */
+.quiz-component h2 {
+  font-weight: 400;
+  font-size: 1.1em;
+}
+/* line 56, ../client/quiz.scss */
+.quiz-component .animateIn {
+  opacity: 1 !important;
+}
+/* line 60, ../client/quiz.scss */
+.quiz-component .animateOut {
+  opacity: 0 !important;
+}
+/* line 64, ../client/quiz.scss */
+.quiz-component .hide {
+  display: none !important;
+}
+/* line 68, ../client/quiz.scss */
+.quiz-component .container {
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* line 77, ../client/quiz.scss */
+.quiz-component .question-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+/* line 83, ../client/quiz.scss */
+.quiz-component .result-container {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2em;
+}
+/* line 88, ../client/quiz.scss */
+.quiz-component .result-container h2 {
+  font-weight: 600;
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px 0 0;
+}
+/* line 95, ../client/quiz.scss */
+.quiz-component .result-container p {
+  width: 80%;
+  margin: 20px auto 0;
+}
+/* line 100, ../client/quiz.scss */
+.quiz-component .result-container ul {
+  font-size: .8em;
+  text-align: left;
+  padding: 30px;
+}
+/* line 106, ../client/quiz.scss */
+.quiz-component .result-container li {
+  margin-bottom: 15px;
+}
+/* line 111, ../client/quiz.scss */
+.quiz-component .question {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .45s;
+  -moz-transition: opacity .45s;
+  -o-transition: opacity .45s;
+  transition: opacity .45s;
+}
+/* line 117, ../client/quiz.scss */
+.quiz-component .question > div {
+  margin: 10px 0;
+}
+/* line 121, ../client/quiz.scss */
+.quiz-component .question > div > div {
+  margin: 20px 0;
+}
+/* line 126, ../client/quiz.scss */
+.quiz-component .question input {
+  width: 50%;
+  height: 1.8em;
+  font-size: 1.2em;
+}
+/* line 132, ../client/quiz.scss */
+.quiz-component .question h2 {
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px 0 0;
+}
+/* line 138, ../client/quiz.scss */
+.quiz-component .question ul {
+  width: 80%;
+  margin: 20px auto;
+}
+/* line 143, ../client/quiz.scss */
+.quiz-component .question li {
+  text-align: left;
+  margin: 3px 0;
+  cursor: pointer;
+  padding: 4px;
+  margin-bottom: 8px;
+}
+/* line 150, ../client/quiz.scss */
+.quiz-component .question li span {
+  font-weight: 700;
+  width: 0;
+  overflow: hidden;
+  -webkit-transition: width .5s;
+  -moz-transition: width .5s;
+  -o-transition: width .5s;
+  transition: width .5s;
+  display: inline-block;
+  transform: translateY(2px);
+}
+/* line 161, ../client/quiz.scss */
+.quiz-component .question li.selected span {
+  width: 20px;
+}
+/* line 167, ../client/quiz.scss */
+.quiz-component .question li:hover {
+  background-color: rgba(245, 245, 245, 0.6);
+}
+/* line 173, ../client/quiz.scss */
+.quiz-component .question button {
+  border: 2px solid white;
+  background: black;
+  color: white;
+  padding: 10px;
+  font-size: .9em;
+}

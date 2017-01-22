@@ -1,0 +1,182 @@
+@mixin transition($trans...) {
+	$max: length($trans);
+	$transitions: '';
+
+	@for $i from 1 through $max {
+		$transitions: #{$transitions + nth($trans, $i)};
+
+		@if $i < $max {
+			$transitions: #{$transitions + ", "};
+		}
+	}
+	-webkit-transition: $transitions;
+	-moz-transition:    $transitions;
+	-o-transition:      $transitions;
+	transition:         $transitions;
+}
+
+.quiz-component {
+
+	font-family: Arial, sans-serif;
+	font-size: 100%;
+	width: 600px;
+	min-height: 500px;
+	padding-bottom: 50px;
+	background-color: #888;
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+
+	h1, h2, h3, h4, p, ul, li {
+		font-weight: 400;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	h1 {
+		font-weight: 600;
+		font-size: 1.3em;
+		display: inline-block;
+		box-sizing: border-box;
+		padding: 10px;
+		color: white;
+		margin: 40px 0 25px;
+		background-color: rgba(0,0,0,.8);
+	}
+
+	h2 {
+		font-weight: 400;
+		font-size: 1.1em;
+	}
+
+	.animateIn {
+		opacity: 1 !important;
+	}
+
+	.animateOut {
+		opacity: 0 !important;
+	}
+
+	.hide {
+		display: none !important;
+	}
+
+	.container {
+		width: 400px;
+		//height: 330px;
+		background-color: rgba(255,255,255,.8);
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.question-container {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+
+	.result-container {
+		width: 100%;
+		height: 100%;
+		font-size: 1.2em;
+
+		h2 {
+			font-weight: 600;
+			width: 80%;
+			margin: 0 auto;
+			padding: 50px 0 0;
+		}
+
+		p {
+			width: 80%;
+			margin: 20px auto 0;
+		}
+
+		ul {
+			font-size: .8em;
+			text-align: left;
+			padding: 30px;
+		}
+
+		li {
+			margin-bottom: 15px;
+		}
+	}
+
+	.question {
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		@include transition('opacity .45s');
+
+		& > div {
+
+			margin: 10px 0;
+
+			& > div {
+				margin: 20px 0;
+			}
+		}
+
+		input {
+			width: 50%;
+			height: 1.8em;
+			font-size: 1.2em;
+		}
+
+		h2 {
+			width: 80%;
+			margin: 0 auto;
+			padding: 50px 0 0;
+		}
+
+		ul {
+			width: 80%;
+			margin: 20px auto;
+		}
+
+		li {
+			text-align: left;
+			margin: 3px 0;
+			cursor: pointer;
+			padding: 4px;
+			margin-bottom: 8px;
+
+			span {
+				font-weight: 700;
+				width: 0;
+				overflow: hidden;
+				@include transition('width .5s');
+				display: inline-block;
+				transform: translateY(2px);
+			}
+
+			&.selected {
+
+				span {
+					width: 20px;
+				}
+
+			}
+
+			&:hover {
+				background-color: rgba(245,245,245,.6);
+
+			}
+		}
+
+		button {
+			border: 2px solid white;
+			background: black;
+			color: white;
+			padding: 10px;
+			font-size: .9em;
+		}
+	}
+
+}

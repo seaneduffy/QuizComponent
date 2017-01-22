@@ -1,0 +1,66 @@
+{
+	"title": "Beatles Quiz",
+	"background": "/beatles-lineup.jpg",
+	"questions": [
+		{
+			"type": "multiple",
+			"text": "George Harrison was known for playing the ______?",
+			"choices": [
+				"Drums",
+				"Flute",
+				"Bass",
+				"Guitar"
+			],
+			"answer": 3,
+			"background": "/hard.jpg"
+		},
+		{
+			"type": "multiple",
+			"text": "In what German city did the Beatles spend their formative years?",
+			"choices": [
+				"Liverpool",
+				"Hamburg",
+				"Berlin",
+				"Frankfurt"
+			],
+			"answer": 1,
+			"background": "/rubber.jpg"
+		},
+		{
+			"type": "text",
+			"text": "Producer George Martin called his signature recording production a \"wall of ______\"?",
+			"answer": "sound",
+			"background": "/revolver.jpg"
+		},
+		{
+			"type": "multiple",
+			"text": "Paul McCartney's musical group he started with wife Linda was named?",
+			"choices": [
+				"Air Supply",
+				"Sky Diamond",
+				"Wings",
+				"The Birds"
+			],
+			"answer": 2,
+			"background": "/peppers.jpg"
+		},
+		{
+			"type": "text",
+			"text": "Ringo Starr's birth name is ______?",
+			"answer": "Richard Starkey",
+			"background": "/yellow.jpg"
+		},
+		{
+			"type": "multiple",
+			"text": "What was the name of John Lennon's first wife?",
+			"choices": [
+				"Cynthia Powell",
+				"Yoko Ono",
+				"Marilyn Monroe",
+				"Janice Joplin"
+			],
+			"answer": 0,
+			"background": "/abbey-road.jpg"
+		}
+	]
+}
